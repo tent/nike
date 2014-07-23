@@ -36,10 +36,10 @@ GIT
 
 GIT
   remote: git://github.com/jvatic/static-sprockets.git
-  revision: 014f2e5f5db60b067e95a2933ce219ba0e01a8d0
+  revision: 535b3d848a3293920183fa3caeb451b811c9a7f6
   branch: master
   specs:
-    static-sprockets (0.0.1)
+    static-sprockets (0.0.2)
       rack (~> 1.0)
       rack-putty (= 0.0.1)
       sass
@@ -63,6 +63,7 @@ GEM
     execjs (2.2.1)
     hike (1.2.3)
     json (1.8.1)
+    mimetype-fu (0.1.2)
     multi_json (1.10.1)
     puma (2.9.0)
       rack (>= 1.1, < 2.0)
@@ -91,6 +92,7 @@ PLATFORMS
 
 DEPENDENCIES
   marbles-js!
+  mimetype-fu
   puma
   rack-putty!
   rake
