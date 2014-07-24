@@ -1,5 +1,6 @@
 @import "normalize";
 @import "sourcesanspro";
+@import "common";
 
 * {
 	-webkit-box-sizing: border-box;
@@ -11,4 +12,14 @@ body {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: 400;
+}
+
+.tasks-list {
+  @extend %unstyled-list;
+
+  > li {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid $lightGrayColor;
+    color: $almostBlackColor;
+  }
 }
