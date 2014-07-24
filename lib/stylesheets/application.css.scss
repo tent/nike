@@ -14,10 +14,17 @@ body {
   font-weight: 400;
 }
 
+.tasks-pane {
+  float: left;
+  min-width: 300px;
+  max-width: 500px;
+}
+
 .tasks-list {
   @extend %unstyled-list;
 
   > li {
+    cursor: default;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid $lightGrayColor;
     color: $almostBlackColor;

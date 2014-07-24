@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-//= require ./tasks-list
+//= require ./tasks-pane
 //= require ../stores/tasks
 
 (function () {
@@ -8,12 +8,18 @@
 
 var TasksStore = Nike.Stores.Tasks;
 
-function getState() {
+function getState(props) {
 	var state = {
 		tasksStoreId: "main"
 	};
 
-	state.tasks = TasksStore.getTasks(state.tasksStoreId);
+	if (props.taskIds.length > 0) {
+		state.taskPaneTasks = [TasksStore.getTasks(state.tasksStoreId)].concat(props.taskIds.map(function (taskId) {
+				return TasksStore.getTasks(state.tasksStoreId, taskId);
+			}));
+	} else {
+		state.taskPaneTasks = [TasksStore.getTasks(state.tasksStoreId)];
+	}
 
 	return state;
 }
@@ -22,10 +28,14 @@ Nike.Views.Main = React.createClass({
 	displayName: "Nike.Views.Main",
 
 	render: function () {
-		var tasks = this.state.tasks;
+		var taskPaneTasks = this.state.taskPaneTasks;
 		return (
 			<section>
-				<Nike.Views.TasksList tasks={tasks} />
+				{taskPaneTasks.map(function (tasks, paneIndex) {
+					return (
+						<Nike.Views.TasksPane key={paneIndex} index={paneIndex} tasks={tasks} />
+					);
+				}, this)}
 			</section>
 		);
 	},
@@ -37,6 +47,10 @@ Nike.Views.Main = React.createClass({
 	componentDidMount: function () {
 		var storeId = this.state.tasksStoreId;
 		TasksStore.addChangeListener(storeId, this.__handleTasksStoreChange);
+	},
+
+	componentWillReceiveProps: function (nextProps) {
+		this.setState(getState(nextProps));
 	},
 
 	componentWillUnmount: function () {

@@ -14,7 +14,9 @@ Nike.Views.TasksList = React.createClass({
 				{this.props.tasks.map(function (task) {
 					return (
 						<li key={task.id}>
-							<Nike.Views.Task task={task} />
+							<Nike.Views.Task
+								task={task}
+								onSelected={this.props.onTaskSelected} />
 						</li>
 					);
 				}, this)}
