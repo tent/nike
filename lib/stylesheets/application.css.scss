@@ -14,8 +14,15 @@ body {
   font-weight: 400;
 }
 
+.tasks-panes {
+  overflow: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
 .tasks-pane {
-  float: left;
+  flex-basis: 300px;
   min-width: 300px;
   max-width: 500px;
 }
