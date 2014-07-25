@@ -9,6 +9,8 @@ Powered by [Tent](https://tent.io)
 
 ## Getting started
 
+This app is built on [Marbles](https://github.com/jvatic/marbles-js) and [React](http://reactjs.org), and uses [Sprockets](https://github.com/sstephenson/sprockets) for asset compilation via [static-sprockets](https://github.com/jvatic/static-sprockets).
+
 ### Runnning locally
 
 ```
