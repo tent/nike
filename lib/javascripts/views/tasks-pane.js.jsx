@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+//= require ./new-task
 //= require ./tasks-list
 //= require ../actions/tasks-pane
 
@@ -17,6 +18,7 @@ Nike.Views.TasksPane = React.createClass({
 				<Nike.Views.TasksList
 					tasks={this.props.tasks}
 					onTaskSelected={this.__handleTaskSelected} />
+				<Nike.Views.NewTask parentTaskId={this.props.parentTaskId} />
 			</section>
 		);
 	},

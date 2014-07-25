@@ -33,7 +33,7 @@ Nike.Views.Main = React.createClass({
 			<section>
 				{taskPaneTasks.map(function (tasks, paneIndex) {
 					return (
-						<Nike.Views.TasksPane key={paneIndex} index={paneIndex} tasks={tasks} />
+						<Nike.Views.TasksPane key={paneIndex} index={paneIndex} parentTaskId={this.props.taskIds[paneIndex-1]} tasks={tasks} />
 					);
 				}, this)}
 			</section>
