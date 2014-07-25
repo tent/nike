@@ -16,6 +16,7 @@ Nike.Views.Task = React.createClass({
 			<article onClick={this.__handleClick} className={"task"+ (task.complete ? " complete" : "")}>
 				<input type="checkbox" ref="checkbox" onChange={this.__handleCheckedChange} checked={task.complete} />
 				{task.name}
+				<button onClick={this.__handleDeleteBtnClick} ref="deleteBtn">&times;</button>
 			</article>
 		);
 	},
@@ -24,8 +25,13 @@ Nike.Views.Task = React.createClass({
 		TaskActions.setTaskCompletion(this.props.task.id, e.target.checked);
 	},
 
+	__handleDeleteBtnClick: function (e) {
+		e.preventDefault();
+		TaskActions.deleteTask(this.props.task.id);
+	},
+
 	__handleClick: function (e) {
-		if (e.target === this.refs.checkbox.getDOMNode()) {
+		if (e.target === this.refs.checkbox.getDOMNode() || e.target === this.refs.deleteBtn.getDOMNode()) {
 			return;
 		}
 		e.preventDefault();
