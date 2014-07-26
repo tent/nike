@@ -27,12 +27,17 @@ body {
 
 .tasks-pane {
   margin: 1rem;
+  margin-left: 0;
   flex-basis: 300px;
   min-width: 300px;
   max-width: 500px;
 
   border: 1px solid $lightGrayColor;
   border-radius: 4px;
+
+  &:first-of-type {
+    margin-left: 1rem;
+  }
 }
 
 .tasks-list {
