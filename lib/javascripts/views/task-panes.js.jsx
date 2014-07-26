@@ -40,14 +40,20 @@ Nike.Views.TaskPanes = React.createClass({
 		el.style.minWidth = null;
 		var scrollWidth = el.scrollWidth;
 		var width;
+		var scrollToEnd = false;
 		if (scrollWidth < this.__minWidth) {
 			width = scrollWidth + scrollX;
 		} else {
 			width = scrollWidth;
+			scrollToEnd = true;
 		}
 		this.__minWidth = width;
 		el.style.minWidth = width + "px";
-		window.scrollTo(scrollX, scrollY);
+		if (scrollToEnd) {
+			window.scrollTo(width, scrollY);
+		} else {
+			window.scrollTo(scrollX, scrollY);
+		}
 	}
 });
 
