@@ -33,9 +33,15 @@ Nike.Views.Main = React.createClass({
 			<section className="tasks-panes">
 				{taskPaneTasks.map(function (tasks, paneIndex) {
 					return (
-						<Nike.Views.TasksPane key={paneIndex} index={paneIndex} parentTaskId={this.props.taskIds[paneIndex-1]} tasks={tasks} />
+						<Nike.Views.TasksPane
+							key={paneIndex}
+							index={paneIndex}
+							parentTaskId={this.props.taskIds[paneIndex-1]}
+							selectedTaskId={this.props.taskIds[paneIndex]}
+							tasks={tasks} />
 					);
 				}, this)}
+				<section className="h-spacer">&nbsp;</section>
 			</section>
 		);
 	},

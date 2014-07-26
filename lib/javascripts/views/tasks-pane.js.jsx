@@ -17,6 +17,7 @@ Nike.Views.TasksPane = React.createClass({
 			<section className="tasks-pane">
 				<Nike.Views.TasksList
 					tasks={this.props.tasks}
+					selectedTaskId={this.props.selectedTaskId}
 					onTaskSelected={this.__handleTaskSelected} />
 				<Nike.Views.NewTask parentTaskId={this.props.parentTaskId} />
 			</section>

@@ -19,12 +19,20 @@ body {
   width: 100%;
   display: flex;
   flex-flow: row;
+
+  > .h-spacer {
+    width: 1rem;
+  }
 }
 
 .tasks-pane {
+  margin: 1rem;
   flex-basis: 300px;
   min-width: 300px;
   max-width: 500px;
+
+  border: 1px solid $lightGrayColor;
+  border-radius: 4px;
 }
 
 .tasks-list {
@@ -32,15 +40,42 @@ body {
 
   > li {
     cursor: default;
-    padding: 0.5rem 1rem;
     border-bottom: 1px solid $lightGrayColor;
     color: $almostBlackColor;
   }
 }
 
-.task {
+.task, .new-task {
+  padding: 0.5rem;
+  word-wrap: break-word;
+
   &.complete {
     text-decoration: line-through;
     opacity: 0.4;
+  }
+
+  &.selected {
+    background-color: $lightGrayColor;
+  }
+
+  input[type=checkbox] {
+    margin-right: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .delete-btn {
+    float: right;
+  }
+}
+
+.new-task {
+  display: block;
+  input[type=text] {
+    width: calc(100% - 3rem - 0.5rem);
+  }
+  button[type=submit] {
+    margin-left: 0.5rem;
+    width: 3rem;
   }
 }

@@ -16,6 +16,7 @@ Nike.Views.TasksList = React.createClass({
 						<li key={task.id}>
 							<Nike.Views.Task
 								task={task}
+								selected={this.props.selectedTaskId === task.id}
 								onSelected={this.props.onTaskSelected} />
 						</li>
 					);
