@@ -1,5 +1,5 @@
 /** @jsx React.DOM */
-//= require ./tasks-pane
+//= require ./task-panes
 //= require ../stores/tasks
 
 (function () {
@@ -28,21 +28,10 @@ Nike.Views.Main = React.createClass({
 	displayName: "Nike.Views.Main",
 
 	render: function () {
-		var taskPaneTasks = this.state.taskPaneTasks;
 		return (
-			<section className="tasks-panes">
-				{taskPaneTasks.map(function (tasks, paneIndex) {
-					return (
-						<Nike.Views.TasksPane
-							key={paneIndex}
-							index={paneIndex}
-							parentTaskId={this.props.taskIds[paneIndex-1]}
-							selectedTaskId={this.props.taskIds[paneIndex]}
-							tasks={tasks} />
-					);
-				}, this)}
-				<section className="h-spacer">&nbsp;</section>
-			</section>
+			<Nike.Views.TaskPanes
+				taskPaneTasks={this.state.taskPaneTasks}
+				taskIds={this.props.taskIds} />
 		);
 	},
 
